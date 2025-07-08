@@ -6,10 +6,11 @@
   let emailInput = '';
   let error = '';
 
-  const credencialesValidas = {
-    name: 'Sara',
-    email: 'sara@email.com'
-  };
+  const credencialesValidas = [
+    { name: 'Sara', email: 'sara@email.com' },
+    { name: 'Carlos', email: 'carlos@email.com' },
+    { name: 'Admin', email: 'admin@site.com' }
+  ];
 
   function iniciarSesion() {
     if (nameInput === '' || emailInput === '') {
@@ -17,10 +18,11 @@
       return;
     }
 
-    if (
-      nameInput !== credencialesValidas.name ||
-      emailInput !== credencialesValidas.email
-    ) {
+    const usuarioValido = credencialesValidas.find(
+      (cred) => cred.name === nameInput && cred.email === emailInput
+    );
+
+    if (!usuarioValido) {
       error = 'Credenciales inválidas.';
       return;
     }
@@ -30,9 +32,12 @@
       email: emailInput,
       loged: true
     });
+
     goto('/admin');
   }
 </script>
+
+
 
 <style>
   .login-container {
