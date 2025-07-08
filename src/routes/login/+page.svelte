@@ -36,9 +36,6 @@
     goto('/admin');
   }
 </script>
-
-
-
 <style>
   .login-container {
     max-width: 400px;
@@ -49,7 +46,6 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
 </style>
-
 <div class="login-container">
   <h2 class="text-center mb-4">Iniciar sesión</h2>
 
